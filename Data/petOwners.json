@@ -1,0 +1,11 @@
+[
+  {
+    "PetType": 1,
+    "Id": 1,
+    "Name": "Roxy",
+    "Description": "Cute, hairy small dog",
+    "Breed": "Chihuahua",
+    "Age": 2,
+    "HealthProfile": "Healthy"
+  }
+]

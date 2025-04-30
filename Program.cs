@@ -1,3 +1,5 @@
+using WebApplication1.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +24,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseMiddleware<DataSyncMiddleware>();
 app.MapControllers();
 
 //PART 3
