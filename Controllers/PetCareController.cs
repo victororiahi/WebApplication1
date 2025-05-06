@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest("Pet with given Id not found.");
             }
-            
+
             if (!petCareTakers.Any(x => x.Id == petAttraction.PetCareTakerId))
             {
                 return BadRequest("Pet Care Taker doesn't exist.");
@@ -132,5 +132,33 @@ namespace WebApplication1.Controllers
 
             return Ok(careTakers);
         }
+
+
+        [HttpGet("GetPetInformationByPetId/{petId}")]
+        public IActionResult GetPetInformationByPetId(int petId)
+        {
+            var pet = pets.FirstOrDefault(x => x.Id == petId);
+            if (pet == null)
+            {
+                return NotFound("No Pet found with this Id.");
+            }
+            return Ok(pet);
+        }
+
+
+        [HttpGet("GetPetTypeByPetTypeId/{petTypeId}")]
+        public IActionResult GetPetTypeByPetTypeId(int petTypeId)
+        {
+            if (Enum.IsDefined(typeof(PetType), petTypeId))
+            {
+                var petType = (PetType)petTypeId;
+                return Ok(petType.ToString());
+            }
+            else
+            {
+                return NotFound("No Pet Type found with this Id.");
+            }
+        }
+
     }
 }

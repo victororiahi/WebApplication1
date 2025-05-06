@@ -24,7 +24,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseMiddleware<DataSyncMiddleware>();
+//app.UseMiddleware<DataSyncMiddleware>();
 app.MapControllers();
 
 //PART 3
