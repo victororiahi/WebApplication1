@@ -182,7 +182,7 @@ namespace WebApplication1.Controllers
         public IActionResult GetAllBasicPetInfo2()
         {
             List<PetResponseDTO> petDTO = new List<PetResponseDTO>();
-            petDTO.ForEach(pet =>
+            pets.ForEach(pet =>
             {
                 petDTO.Add(new PetResponseDTO
                 {
@@ -199,18 +199,27 @@ namespace WebApplication1.Controllers
         [HttpGet("GetAllBasicPetInfo3")]
         public IActionResult GetAllBasicPetInfo3()
         {
-            List<PetResponseDTO> petDTO = new List<PetResponseDTO>();
-            petDTO.ForEach(pet =>
-            {
-                petDTO.Add(new PetResponseDTO
+            List<PetResponseDTO> petDTO = 
+            pets.Select(pet =>
+             new PetResponseDTO
                 {
                     Name = pet.Name,
                     Description = pet.Description,
                     ResponseDate = DateTime.Now
-                });
-            });
+                }
+            ).ToList();
 
             return Ok(petDTO);
+        }  
+        
+        
+        [HttpGet("GetAllBasicPetInfo4")]
+        public IActionResult GetAllBasicPetInfo4()
+        {
+           
+            var j = pets.Select(pet => new { pet.Name, pet.Description, DateTime.Now }).ToList();
+           
+            return Ok(j);
         }
     }
 }
