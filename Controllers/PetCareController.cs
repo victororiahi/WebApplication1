@@ -160,5 +160,57 @@ namespace WebApplication1.Controllers
             }
         }
 
+
+        [HttpGet("GetAllBasicPetInfo")]
+        public IActionResult GetAllBasicPetInfo()
+        {
+            List<PetResponseDTO> petDTO = new List<PetResponseDTO>();
+            foreach (var pet in pets)
+            {
+                PetResponseDTO petResponseDTO = new PetResponseDTO();
+                petResponseDTO.Name = pet.Name;
+                petResponseDTO.Description = pet.Description;
+                petResponseDTO.ResponseDate = DateTime.Now;
+                petDTO.Add(petResponseDTO);
+            }
+
+            return Ok(petDTO);
+        }
+
+
+        [HttpGet("GetAllBasicPetInfo2")]
+        public IActionResult GetAllBasicPetInfo2()
+        {
+            List<PetResponseDTO> petDTO = new List<PetResponseDTO>();
+            petDTO.ForEach(pet =>
+            {
+                petDTO.Add(new PetResponseDTO
+                {
+                    Name = pet.Name,
+                    Description = pet.Description,
+                    ResponseDate = DateTime.Now
+                });
+            });
+
+            return Ok(petDTO);
+        }
+
+
+        [HttpGet("GetAllBasicPetInfo3")]
+        public IActionResult GetAllBasicPetInfo3()
+        {
+            List<PetResponseDTO> petDTO = new List<PetResponseDTO>();
+            petDTO.ForEach(pet =>
+            {
+                petDTO.Add(new PetResponseDTO
+                {
+                    Name = pet.Name,
+                    Description = pet.Description,
+                    ResponseDate = DateTime.Now
+                });
+            });
+
+            return Ok(petDTO);
+        }
     }
 }
