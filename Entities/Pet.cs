@@ -1,9 +1,9 @@
 ﻿namespace WebApplication1.Entities
 {
-    public class Pet : IEntity
+    public class Pet
     {
         public PetType PetType { get; set; } 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
          public string Name { get; set; }
         public string Description { get; set; }
 

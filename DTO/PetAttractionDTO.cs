@@ -2,7 +2,7 @@
 {
     public class PetAttractionDTO
     {
-        public int PetId { get; set; }
-        public int PetCareTakerId { get; set; }
+        public Guid PetId { get; set; }
+        public Guid PetCareTakerId { get; set; }
     }
 }

@@ -1,10 +1,10 @@
 ﻿namespace WebApplication1.Entities
 {
-    public class PetAttraction: IEntity
+    public class PetAttraction
     {
-        public int PetId { get; set; }
-        public int PetCareTakerId { get; set; }
+        public Guid PetId { get; set; }
+        public Guid PetCareTakerId { get; set; }
         public DateTime AttractionDate { get; set; }
-        public int Id { get; set;}
+        public Guid Id { get; set;}
     }
 }
